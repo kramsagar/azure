@@ -1,0 +1,53 @@
+#
+#https://stackoverflow.com/questions/74803509/connecting-vscode-to-azure-cloudshell
+#Steps to follow to setup cli in vscode.
+
+az account list
+az group list
+az group delete --name EnvironmentGroup --yes
+
+ram [ ~ ]$ az account list
+
+[
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "d38bc14c-c66c-4273-ab6b-15bdd3e5ba6d",
+    "id": "612d4f59-9820-4386-a4f9-a67424151e69",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Ram-freetrail",
+    "state": "Enabled",
+    "tenantId": "d38bc14c-c66c-4273-ab6b-15bdd3e5ba6d",
+    "user": {
+      "cloudShellID": true,
+      "name": "live.com#rkyasan44@gmail.com",
+      "type": "user"
+    }
+  }
+]
+ram [ ~ ]$ az group list
+[
+  {
+    "id": "/subscriptions/612d4f59-9820-4386-a4f9-a67424151e69/resourceGroups/DigiMicroservices",
+    "location": "eastus",
+    "managedBy": null,
+    "name": "DigiMicroservices",
+    "properties": {
+      "provisioningState": "Succeeded"
+    },
+    "tags": {
+      "Environment": "Production",
+      "Exam": "Yes"
+    },
+    "type": "Microsoft.Resources/resourceGroups"
+  }
+]
+ram [ ~ ]$ az group delete --name EnvironmentGroup --yes
+(ResourceGroupNotFound) Resource group 'EnvironmentGroup' could not be found.
+Code: ResourceGroupNotFound
+Message: Resource group 'EnvironmentGroup' could not be found.
+ram [ ~ ]$ 
+
+
+
+
