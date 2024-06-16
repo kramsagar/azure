@@ -49,5 +49,30 @@ Message: Resource group 'EnvironmentGroup' could not be found.
 ram [ ~ ]$ 
 
 
+az vm create --name mydemovm2 --resource-group DigiMicroservices --image Ubuntu2204 --generate-ssh-keys
+
+ram [ ~ ]$ az vm create --name mydemovm2 --resource-group DigiMicroservices --image ubuntu
+Invalid image "ubuntu". Use a valid image URN, custom image name, custom image id, VHD blob URI, or pick an image from ['CentOS85Gen2', 'Debian11', 'FlatcarLinuxFreeGen2', 'OpenSuseLeap154Gen2', 'RHELRaw8LVMGen2', 'SuseSles15SP3', 'Ubuntu2204', 'Win2022Datacenter', 'Win2022AzureEditionCore', 'Win2019Datacenter', 'Win2016Datacenter', 'Win2012R2Datacenter', 'Win2012Datacenter', 'Win2008R2SP1'].
+See vm create -h for more information on specifying an image.
+ram [ ~ ]$ az vm create --name mydemovm2 --resource-group DigiMicroservices --image Ubuntu2204
+An RSA key file or key value must be supplied to SSH Key Value. You can use --generate-ssh-keys to let CLI generate one for you
+ram [ ~ ]$ az vm create --name mydemovm2 --resource-group DigiMicroservices --image Ubuntu2204 --generate-ssh-keys
+SSH key files '/home/ram/.ssh/id_rsa' and '/home/ram/.ssh/id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage, back up your keys to a safe location.
+{
+  "fqdns": "",
+  "id": "/subscriptions/612d4f59-9820-4386-a4f9-a67424151e69/resourceGroups/DigiMicroservices/providers/Microsoft.Compute/virtualMachines/mydemovm2",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-13-9B-97",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "52.170.234.15",
+  "resourceGroup": "DigiMicroservices",
+  "zones": ""
+}
+ram [ ~ ]$ 
+
+
+
+
 
 

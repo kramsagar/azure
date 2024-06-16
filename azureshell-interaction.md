@@ -189,3 +189,74 @@ ram [ ~ ]$ az group list
     "type": "Microsoft.Resources/resourceGroups"
   }
 ]
+
+ram [ ~ ]$ az vm create --name mydemovm2 --resource-group DigiMicroservices --image Ubuntu2204 --generate-ssh-keys
+SSH key files '/home/ram/.ssh/id_rsa' and '/home/ram/.ssh/id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage, back up your keys to a safe location.
+{
+  "fqdns": "",
+  "id": "/subscriptions/612d4f59-9820-4386-a4f9-a67424151e69/resourceGroups/DigiMicroservices/providers/Microsoft.Compute/virtualMachines/mydemovm2",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-13-9B-97",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "52.170.234.15",
+  "resourceGroup": "DigiMicroservices",
+  "zones": ""
+}
+ram [ ~ ]$ 
+
+![alt text](image.png)
+
+
+
+### Connect to VM
+az ssh vm --resource-group DigiMicroservices --vm-name mydemovm2 --subscription 612d4f59-9820-4386-a4f9-a67424151e69
+
+
+ram [ ~ ]$ az ssh vm --resource-group DigiMicroservices --vm-name mydemovm2 --subscription 612d4f59-9820-4386-a4f9-a67424151e69
+OpenSSH_8.9p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021
+The authenticity of host '52.170.234.15 (52.170.234.15)' can't be established.
+ED25519 key fingerprint is SHA256:2FokNQuyWNoNEFI+PMNxROG8zRVc7OqswPkhc9rgG7o.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '52.170.234.15' (ED25519) to the list of known hosts.
+Learned new hostkey: RSA SHA256:TuQYzfqs+AtgsGdRSFx4O0oN9DOKECj9RjL9I1lszCU
+                                                                           Learned new hostkey: ECDSA SHA256:CfxCDQ1GecuvE0ygZnEgwE1BRaWiMV6WtIEYYoouI7k
+                                                                                                                                                        Adding new key for 52.170.234.15 to /home/ram/.ssh/known_hosts: ssh-rsa SHA256:TuQYzfqs+AtgsGdRSFx4O0oN9DOKECj9RjL9I1lszCU
+                                                                                           Adding new key for 52.170.234.15 to /home/ram/.ssh/known_hosts: ecdsa-sha2-nistp256 SHA256:CfxCDQ1GecuvE0ygZnEgwE1BRaWiMV6WtIEYYoouI7k
+                                          Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.5.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Sat Jun  8 06:10:46 UTC 2024
+
+  System load:  0.15              Processes:             105
+  Usage of /:   5.8% of 28.89GB   Users logged in:       0
+  Memory usage: 9%                IPv4 address for eth0: 10.0.0.4
+  Swap usage:   0%
+
+Expanded Security Maintenance for Applications is not enabled.
+
+42 updates can be applied immediately.
+31 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+rkyasan44@gmail.com@mydemovm2:~$ 
+
